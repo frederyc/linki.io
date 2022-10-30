@@ -6,23 +6,33 @@
         <entry key="..\:/Projects/Android/linky/app/src/main/res/drawable/auth_button.xml" value="0.421" />
         <entry key="..\:/Projects/Android/linky/app/src/main/res/drawable/auth_rounded_corners.xml" value="0.472" />
         <entry key="..\:/Projects/Android/linky/app/src/main/res/drawable/button_primary.xml" value="0.339" />
+        <entry key="..\:/Projects/Android/linky/app/src/main/res/drawable/chart-connected_24.xml" value="0.4215" />
         <entry key="..\:/Projects/Android/linky/app/src/main/res/drawable/circle.xml" value="0.416" />
+        <entry key="..\:/Projects/Android/linky/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.4215" />
         <entry key="..\:/Projects/Android/linky/app/src/main/res/drawable/link_shape.xml" value="0.416" />
+        <entry key="..\:/Projects/Android/linky/app/src/main/res/drawable/settings_24.xml" value="0.4215" />
+        <entry key="..\:/Projects/Android/linky/app/src/main/res/drawable/user_24.xml" value="0.4215" />
         <entry key="..\:/Projects/Android/linky/app/src/main/res/layout/activity_authentication.xml" value="0.5177083333333333" />
         <entry key="..\:/Projects/Android/linky/app/src/main/res/layout/activity_main.xml" value="0.5" />
         <entry key="..\:/Projects/Android/linky/app/src/main/res/layout/activity_register.xml" value="0.4354166666666667" />
         <entry key="..\:/Projects/Android/linky/app/src/main/res/layout/content_authentication.xml" value="0.5177083333333333" />
         <entry key="..\:/Projects/Android/linky/app/src/main/res/layout/content_register.xml" value="0.4354166666666667" />
-        <entry key="..\:/Projects/Android/linky/app/src/main/res/layout/fragment_dashboard.xml" value="0.1" />
+        <entry key="..\:/Projects/Android/linky/app/src/main/res/layout/fragment_connections.xml" value="0.41875" />
+        <entry key="..\:/Projects/Android/linky/app/src/main/res/layout/fragment_dashboard.xml" value="0.5" />
         <entry key="..\:/Projects/Android/linky/app/src/main/res/layout/fragment_first.xml" value="0.5" />
         <entry key="..\:/Projects/Android/linky/app/src/main/res/layout/fragment_first2.xml" value="0.48333333333333334" />
         <entry key="..\:/Projects/Android/linky/app/src/main/res/layout/fragment_home.xml" value="0.5177083333333333" />
         <entry key="..\:/Projects/Android/linky/app/src/main/res/layout/fragment_login.xml" value="0.5177083333333333" />
         <entry key="..\:/Projects/Android/linky/app/src/main/res/layout/fragment_notifications.xml" value="0.5177083333333333" />
+        <entry key="..\:/Projects/Android/linky/app/src/main/res/layout/fragment_profile.xml" value="0.41875" />
         <entry key="..\:/Projects/Android/linky/app/src/main/res/layout/fragment_register.xml" value="0.4354166666666667" />
         <entry key="..\:/Projects/Android/linky/app/src/main/res/layout/fragment_second.xml" value="0.48333333333333334" />
         <entry key="..\:/Projects/Android/linky/app/src/main/res/layout/fragment_second2.xml" value="0.48333333333333334" />
-        <entry key="..\:/Projects/Android/linky/app/src/main/res/layout/user_editable_link.xml" value="0.33" />
+        <entry key="..\:/Projects/Android/linky/app/src/main/res/layout/fragment_settings.xml" value="0.33" />
+        <entry key="..\:/Projects/Android/linky/app/src/main/res/layout/user_connections_card.xml" value="0.5" />
+        <entry key="..\:/Projects/Android/linky/app/src/main/res/layout/user_editable_link.xml" value="0.5" />
+        <entry key="..\:/Projects/Android/linky/app/src/main/res/menu/bottom_nav_menu.xml" value="0.41875" />
+        <entry key="..\:/Projects/Android/linky/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.4215" />
       </map>
     </option>
   </component>
