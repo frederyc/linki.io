@@ -1,4 +1,4 @@
-package com.example.linky;
+package com.example.linky.adapters;
 
 import android.content.Context;
 import android.util.Log;
@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.linky.R;
 import com.example.linky.backend.models.EditableLink;
 import com.makeramen.roundedimageview.RoundedImageView;
 
@@ -36,11 +37,46 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
         holder.platformLogo.setImageDrawable(
                 ResourcesCompat.getDrawable(
                         context.getResources(),
-                        R.drawable.facebook,
+                        getDrawableByName(editableLinks[position].getPlatform()),
                         null
                 )
         );
         holder.platformName.setText(editableLinks[position].getPlatform());
+    }
+
+    private int getDrawableByName(String name) {
+        switch (name) {
+            case "bereal":
+                return R.drawable.bereal;
+            case "discord":
+                return R.drawable.discord;
+            case "facebook":
+                return R.drawable.facebook;
+            case "gmail":
+                return R.drawable.gmail;
+            case "instagram":
+                return R.drawable.instagram;
+            case "linkedin":
+                return R.drawable.linkedin;
+            case "onlyfans":
+                return R.drawable.onlyfans;
+            case "pinterest":
+                return R.drawable.pinterest;
+            case "quora":
+                return R.drawable.quora;
+            case "reddit":
+                return R.drawable.reddit;
+            case "snapchat":
+                return R.drawable.snapchat;
+            case "tiktok":
+                return R.drawable.tiktok;
+            case "twitter":
+                return R.drawable.twitter;
+            case "yahoo":
+                return R.drawable.yahoo;
+            default:
+                return R.drawable.image_placeholder;
+        }
     }
 
     @Override

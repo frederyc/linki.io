@@ -1,4 +1,4 @@
-package com.example.linky.ui.home;
+package com.example.linky.ui.profile;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,20 +10,20 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.example.linky.HomeAdapter;
+import com.example.linky.adapters.HomeAdapter;
 import com.example.linky.backend.models.EditableLink;
-import com.example.linky.databinding.FragmentHomeBinding;
+import com.example.linky.databinding.FragmentProfileBinding;
 
 import java.util.UUID;
 
-public class HomeFragment extends Fragment {
+public class ProfileFragment extends Fragment {
 
-    private FragmentHomeBinding binding;
+    private FragmentProfileBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        ProfileViewModel homeViewModel = new ViewModelProvider(this).get(ProfileViewModel.class);
+        binding = FragmentProfileBinding.inflate(inflater, container, false);
 
         EditableLink[] editableLinks = new EditableLink[]{
                 new EditableLink("facebook", "www.facebook.com/mircea-feder", UUID.randomUUID().toString()),
