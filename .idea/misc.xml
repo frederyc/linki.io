@@ -33,6 +33,18 @@
         <entry key="..\:/Projects/Android/linky/app/src/main/res/layout/user_editable_link.xml" value="0.5" />
         <entry key="..\:/Projects/Android/linky/app/src/main/res/menu/bottom_nav_menu.xml" value="0.41875" />
         <entry key="..\:/Projects/Android/linky/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.4215" />
+        <entry key="..\:/Projects/linki.io/app/src/main/res/drawable/chart_connected_24.xml" value="0.4815" />
+        <entry key="..\:/Projects/linki.io/app/src/main/res/drawable/dialog_background.xml" value="0.4805" />
+        <entry key="..\:/Projects/linki.io/app/src/main/res/layout/activity_main.xml" value="0.48125" />
+        <entry key="..\:/Projects/linki.io/app/src/main/res/layout/activity_register.xml" value="0.48125" />
+        <entry key="..\:/Projects/linki.io/app/src/main/res/layout/content_authentication.xml" value="0.48125" />
+        <entry key="..\:/Projects/linki.io/app/src/main/res/layout/edit_link_dialog.xml" value="0.5" />
+        <entry key="..\:/Projects/linki.io/app/src/main/res/layout/fragment_connections.xml" value="0.48125" />
+        <entry key="..\:/Projects/linki.io/app/src/main/res/layout/fragment_login.xml" value="0.48125" />
+        <entry key="..\:/Projects/linki.io/app/src/main/res/layout/fragment_profile.xml" value="0.48125" />
+        <entry key="..\:/Projects/linki.io/app/src/main/res/layout/fragment_register.xml" value="0.48125" />
+        <entry key="..\:/Projects/linki.io/app/src/main/res/layout/user_connections_card.xml" value="0.48125" />
+        <entry key="..\:/Projects/linki.io/app/src/main/res/layout/user_editable_link.xml" value="0.48125" />
       </map>
     </option>
   </component>
