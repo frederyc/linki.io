@@ -48,7 +48,6 @@ public class ProfileFragment extends Fragment {
                 new EditableLink("pinterest", "www.facebook.com/mircea-popa", UUID.randomUUID().toString()),
                 new EditableLink("bereal", "www.facebook.com/cristina-florea", UUID.randomUUID().toString()),
                 new EditableLink("reddit", "www.facebook.com/ligius-matesoni", UUID.randomUUID().toString()),
-
         };
 
         HomeAdapter adapter = new HomeAdapter(this.getContext(), editableLinks);
