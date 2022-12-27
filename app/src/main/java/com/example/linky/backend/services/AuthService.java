@@ -1,7 +1,14 @@
 package com.example.linky.backend.services;
 
+import android.app.Activity;
+import android.content.Intent;
+
+import com.example.linky.R;
 import com.example.linky.backend.interfaces.IAuthenticationFailed;
 import com.example.linky.backend.interfaces.IAuthenticationSucceeded;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class AuthService {
