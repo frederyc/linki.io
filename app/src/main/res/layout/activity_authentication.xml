@@ -144,27 +144,6 @@
             android:textStyle="bold"
             tools:ignore="TouchTargetSizeCheck" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="?colorOnPrimary"
-            android:textStyle="bold"
-            android:textSize="12sp"
-            android:gravity="center"
-            android:layout_marginTop="10dp"
-            android:text="- or continue with -" />
-
-        <ImageView
-            android:id="@+id/LGoogle"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#B4C4FC"
-            android:background="@drawable/button_primary"
-            android:padding="5dp"
-            android:src="@drawable/google" />
-
-
     </LinearLayout>
 
     <LinearLayout

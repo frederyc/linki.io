@@ -15,10 +15,6 @@ import com.example.linky.ui.LoadingScreen;
 
 import java.util.regex.Pattern;
 
-/**
- * A service that helps with authentication
- * The available authentication options are email/password & google auth
- */
 public class AuthenticationActivity extends AppCompatActivity {
 
     private ActivityAuthenticationBinding binding;
