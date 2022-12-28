@@ -19,8 +19,8 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_width="160dp"
-            android:layout_height="160dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:src="@drawable/logo"  />
 
         <TextView
@@ -159,8 +159,8 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_width="160dp"
-            android:layout_height="160dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:src="@drawable/logo" />
 
         <TextView
@@ -187,6 +187,41 @@
             android:textStyle="bold"
             android:layout_marginTop="15dp"
             android:textSize="12sp"
+            android:text="Full Name" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:background="@drawable/auth_rounded_corners">
+
+            <EditText
+                android:id="@+id/RFullName"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="15dp"
+                android:background="@android:color/transparent"
+                android:hint="John Doe"
+                android:textSize="12sp"
+                android:textColor="?colorOnPrimary"
+                android:textColorHint="?colorOnPrimary"
+                android:layout_gravity="center"
+                android:layout_marginVertical="4dp"
+                android:ems="10"
+                android:inputType="text" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="?colorOnPrimary"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:layout_marginTop="10dp"
             android:text="Email" />
 
         <LinearLayout
