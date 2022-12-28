@@ -14,6 +14,7 @@ import com.example.linky.databinding.ActivityAuthenticationBinding;
 import com.example.linky.ui.LoadingScreen;
 
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 public class AuthenticationActivity extends AppCompatActivity {
 
@@ -29,21 +30,13 @@ public class AuthenticationActivity extends AppCompatActivity {
         binding = ActivityAuthenticationBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.LRegister.setOnClickListener(view -> {
-            handleNavigateToRegister();
-        });
+        binding.LRegister.setOnClickListener(view -> handleNavigateToRegister());
 
-        binding.RLogin.setOnClickListener(view -> {
-            handleNavigateToLogin();
-        });
+        binding.RLogin.setOnClickListener(view -> handleNavigateToLogin());
 
-        binding.RRegister.setOnClickListener(view -> {
-            handleRegister(this);
-        });
+        binding.RRegister.setOnClickListener(view -> handleRegister(this));
 
-        binding.LLogin.setOnClickListener(view -> {
-            handleLoginWithEmailAndPassword(this);
-        });
+        binding.LLogin.setOnClickListener(view -> handleLoginWithEmailAndPassword(this));
     }
 
     private void handleNavigateToRegister() {
@@ -80,13 +73,20 @@ public class AuthenticationActivity extends AppCompatActivity {
         LoadingScreen loadingScreen = new LoadingScreen(activity, R.layout.loading_screen);
         loadingScreen.start();
 
+        String fullName = binding.RFullName.getText().toString();
         String email = binding.REmail.getText().toString();
         String password = binding.RPassword.getText().toString();
         String cpassword = binding.RCPassword.getText().toString();
 
+        if (!checkIfNameIsValid(fullName)) {
+            binding.RFullName.setError("Name must have at least 6 letters");
+            loadingScreen.stop();
+            return;
+        }
+
         if (!checkIfEmailAddressIsValid(email)) {
             binding.REmail.setError("Invalid email address");
-            loadingScreen.start();
+            loadingScreen.stop();
             return;
         }
         if (!checkIfPasswordIsValid(password)) {
@@ -96,11 +96,11 @@ public class AuthenticationActivity extends AppCompatActivity {
         }
         if (!password.equals(cpassword)) {
             binding.RCPassword.setError("Invalid password");
-            loadingScreen.start();
+            loadingScreen.stop();
             return;
         }
 
-        authService.createAccount(email, password, () -> {
+        authService.createAccount(fullName, email, password, () -> {
             clearFields();
             loadingScreen.stop();
             Toast.makeText(getBaseContext(), "Account created successfully", Toast.LENGTH_SHORT).show();
@@ -111,6 +111,13 @@ public class AuthenticationActivity extends AppCompatActivity {
             loadingScreen.stop();
             Toast.makeText(getBaseContext(), "Failed to create account", Toast.LENGTH_SHORT).show();
         });
+    }
+
+    private boolean checkIfNameIsValid(String name) {
+        int counter = 0;
+        for (char c : name.toCharArray())
+            counter += Character.isAlphabetic(c) ? 1 : 0;
+        return counter > 5;
     }
 
     private boolean checkIfEmailAddressIsValid(String email) {
@@ -124,6 +131,7 @@ public class AuthenticationActivity extends AppCompatActivity {
     }
 
     private void clearFields() {
+        binding.RFullName.setText("");
         binding.REmail.setText("");
         binding.RPassword.setText("");
         binding.RCPassword.setText("");
