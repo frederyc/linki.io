@@ -1,15 +1,14 @@
 package com.example.linky.backend.models;
 
 public class EditableLink {
-    private String platform, link, userId;
+    private String platform, link;
 
     public EditableLink() {
     }
 
-    public EditableLink(String platform, String link, String userId) {
+    public EditableLink(String platform, String link) {
         this.platform = platform;
         this.link = link;
-        this.userId = userId;
     }
 
     public String getPlatform() {
@@ -26,13 +25,5 @@ public class EditableLink {
 
     public void setLink(String link) {
         this.link = link;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.linky.ui;
+package com.example.linky.ui.dialogs;
 
 import android.app.Activity;
 import android.app.AlertDialog;

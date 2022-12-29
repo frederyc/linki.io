@@ -11,10 +11,9 @@ import android.widget.Toast;
 
 import com.example.linky.backend.services.AuthService;
 import com.example.linky.databinding.ActivityAuthenticationBinding;
-import com.example.linky.ui.LoadingScreen;
+import com.example.linky.ui.dialogs.LoadingScreen;
 
 import java.util.regex.Pattern;
-import java.util.stream.Stream;
 
 public class AuthenticationActivity extends AppCompatActivity {
 
@@ -31,11 +30,8 @@ public class AuthenticationActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         binding.LRegister.setOnClickListener(view -> handleNavigateToRegister());
-
         binding.RLogin.setOnClickListener(view -> handleNavigateToLogin());
-
         binding.RRegister.setOnClickListener(view -> handleRegister(this));
-
         binding.LLogin.setOnClickListener(view -> handleLoginWithEmailAndPassword(this));
     }
 
@@ -56,14 +52,14 @@ public class AuthenticationActivity extends AppCompatActivity {
         String email = binding.LEmail.getText().toString();
         String password = binding.LPassword.getText().toString();
 
-        authService.signInWithEmailAndPassword(email, password, () -> {
+        authService.signInWithEmailAndPassword(email, password, (Object... objects) -> {
             clearFields();
             loadingScreen.stop();
             Toast.makeText(getBaseContext(), String.format("%s logged in", email), Toast.LENGTH_SHORT).show();
             Intent navIntent = new Intent(this, MainActivity.class);
             navIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(navIntent);
-        }, () -> {
+        }, (Object... objects) -> {
             loadingScreen.stop();
             Toast.makeText(getBaseContext(), "Failed to sign in", Toast.LENGTH_SHORT).show();
         });
@@ -100,16 +96,18 @@ public class AuthenticationActivity extends AppCompatActivity {
             return;
         }
 
-        authService.createAccount(fullName, email, password, () -> {
+        authService.createAccount(fullName, email, password, (Object... objects) -> {
             clearFields();
             loadingScreen.stop();
-            Toast.makeText(getBaseContext(), "Account created successfully", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getBaseContext(), "Account created successfully", Toast.LENGTH_SHORT)
+                    .show();
             Intent navIntent = new Intent(this, MainActivity.class);
             navIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(navIntent);
-        }, () -> {
+        }, (Object... objects) -> {
             loadingScreen.stop();
-            Toast.makeText(getBaseContext(), "Failed to create account", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getBaseContext(), "Failed to create account", Toast.LENGTH_SHORT)
+                    .show();
         });
     }
 
