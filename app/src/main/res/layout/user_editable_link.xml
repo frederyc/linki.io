@@ -6,6 +6,7 @@
     android:layout_marginBottom="16dp">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/UELCardView"
         android:layout_width="0dp"
         android:layout_height="48dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,7 +22,7 @@
 
 
             <com.makeramen.roundedimageview.RoundedImageView
-                android:id="@+id/platformLogo"
+                android:id="@+id/UELPlatformLogo"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_marginStart="8dp"
@@ -32,7 +33,7 @@
                 android:src="@drawable/image_placeholder"/>
 
             <TextView
-                android:id="@+id/platformName"
+                android:id="@+id/UELPlatformName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -40,11 +41,11 @@
                 android:textColor="?colorOnPrimary"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/platformLogo"
+                app:layout_constraintStart_toEndOf="@+id/UELPlatformLogo"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/add"
+                android:id="@+id/UELAdd"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginEnd="8dp"
@@ -54,7 +55,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/edit"
+                android:id="@+id/UELEdit"
                 android:visibility="gone"
                 android:layout_width="24dp"
                 android:layout_height="24dp"

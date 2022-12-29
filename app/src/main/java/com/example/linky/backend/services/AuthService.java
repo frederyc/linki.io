@@ -28,10 +28,8 @@ public class AuthService {
             ) {
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
             if (task.isSuccessful())
-                userDataService.createUserDataInstance(
+                userDataService.createUserData(
                         fullName,
-                        auth.getUid(),
-                        email,
                         succeeded,
                         failed
                 );
@@ -52,6 +50,13 @@ public class AuthService {
            else
                failed.call();
         });
+    }
+
+    /**
+     * Checks if a user is logged in, returns true if it is
+     */
+    public boolean userLoggedIn() {
+        return auth.getCurrentUser() != null;
     }
 
 }
