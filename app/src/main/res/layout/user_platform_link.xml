@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="16dp">
+    android:layout_marginBottom="8dp">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/UELCardView"
+        android:id="@+id/UPLCardView"
         android:layout_width="0dp"
         android:layout_height="48dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,7 +22,7 @@
 
 
             <com.makeramen.roundedimageview.RoundedImageView
-                android:id="@+id/UELPlatformLogo"
+                android:id="@+id/UPLPlatformLogo"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_marginStart="8dp"
@@ -33,7 +33,7 @@
                 android:src="@drawable/image_placeholder"/>
 
             <TextView
-                android:id="@+id/UELPlatformName"
+                android:id="@+id/UPLPlatformName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -41,11 +41,11 @@
                 android:textColor="?colorOnPrimary"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/UELPlatformLogo"
+                app:layout_constraintStart_toEndOf="@+id/UPLPlatformLogo"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/UELAdd"
+                android:id="@+id/UPLAdd"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginEnd="8dp"
@@ -55,7 +55,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/UELEdit"
+                android:id="@+id/UPLEdit"
                 android:visibility="gone"
                 android:layout_width="24dp"
                 android:layout_height="24dp"

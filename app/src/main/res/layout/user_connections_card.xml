@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="16dp">
+    android:layout_marginBottom="8dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
@@ -21,41 +21,31 @@
             android:layout_height="match_parent">
 
 
-            <com.makeramen.roundedimageview.RoundedImageView
-                android:id="@+id/userIcon"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginStart="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:riv_corner_radius="5dp"
-                android:src="@drawable/profile_placeholder"/>
-
             <TextView
-                android:id="@+id/userName"
+                android:id="@+id/UCCFullName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:text="John Doe"
                 android:textColor="?colorOnPrimary"
                 android:textSize="12sp"
+                android:paddingStart="18dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/userIcon"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.25" />
 
             <TextView
-                android:id="@+id/userEmail"
+                android:id="@+id/UCCEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="john.doe@gmail.com"
-                android:textSize="10sp"
-                android:textStyle="italic"
-                android:textColor="?colorOnPrimary"
                 android:layout_marginTop="2dp"
-                app:layout_constraintStart_toStartOf="@+id/userName"
-                app:layout_constraintTop_toBottomOf="@+id/userName" />
+                android:text="john.doe@gmail.com"
+                android:textColor="?colorOnPrimary"
+                android:textSize="10sp"
+                android:paddingStart="18dp"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/UCCFullName" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

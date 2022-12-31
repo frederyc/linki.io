@@ -2,11 +2,8 @@ package com.example.linky;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 
-import com.example.linky.backend.cache.UserDataCache;
 import com.example.linky.backend.services.AuthService;
-import com.example.linky.ui.dialogs.LoadingScreen;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;

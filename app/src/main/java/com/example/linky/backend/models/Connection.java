@@ -1,13 +1,16 @@
 package com.example.linky.backend.models;
 
-public class Connection {
-    private String name, email, id, image;
+import java.util.Map;
 
-    public Connection(String name, String email, String id, String image) {
+public class Connection {
+    private String name, email, uuid;
+    private Map<String, String> platformLinks;
+
+    public Connection(String name, String email, String uuid, Map<String, String> platformLinks) {
         this.name = name;
         this.email = email;
-        this.id = id;
-        this.image = image;
+        this.uuid = uuid;
+        this.platformLinks = platformLinks;
     }
 
     public String getName() {
@@ -26,19 +29,19 @@ public class Connection {
         this.email = email;
     }
 
-    public String getId() {
-        return id;
+    public String getUuid() {
+        return uuid;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
-    public String getImage() {
-        return image;
+    public Map<String, String> getPlatformLinks() {
+        return platformLinks;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setPlatformLinks(Map<String, String> platformLinks) {
+        this.platformLinks = platformLinks;
     }
 }

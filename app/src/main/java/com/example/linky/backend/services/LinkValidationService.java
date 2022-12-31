@@ -9,9 +9,7 @@ import java.util.Map;
  */
 public class LinkValidationService {
     private static LinkValidationService instance = null;
-    private final Map<String, String> regexes;    // platform -> regex
-
-    //https://www.linkedin.com/in/mircea-feder-b460151aa/
+    private final Map<String, String> regexes;
 
     private LinkValidationService() {
         String HTTPS = "https://";

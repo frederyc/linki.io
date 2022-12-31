@@ -12,6 +12,7 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" >@color/accent_D</item>
+        <item name="android:navigationBarColor">@color/black</item>
         <!-- Customize your theme here. -->
     </style>
 </resources>

@@ -1,10 +1,18 @@
 package com.example.linky.backend.services;
 
+import android.graphics.BitmapFactory;
+
 import com.example.linky.backend.interfaces.ILambda;
-import com.example.linky.backend.models.EditableLink;
+import com.example.linky.backend.models.PlatformLink;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldPath;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.zxing.WriterException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,10 +24,14 @@ public class UserDataService {
     private static final String COLLECTION_NAME = "userData";
     private final FirebaseFirestore db;
     private final FirebaseAuth auth;
+    private final FirebaseStorage storage;
+    private final QRCodeService qrCodeService;
 
     private UserDataService() {
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
+        storage = FirebaseStorage.getInstance();
+        qrCodeService = QRCodeService.getInstance();
     }
 
     public static UserDataService getInstance() {
@@ -64,8 +76,13 @@ public class UserDataService {
 
         dataToSave.put("links", socialNetworks);
         docRef.set(dataToSave).addOnCompleteListener(task -> {
-            if (task.isSuccessful())
-                succeeded.call();
+            if (task.isSuccessful()) {
+                addQRCode((Object... objects) -> {
+                    succeeded.call();
+                }, (Object... objects) -> {
+                    failed.call();
+                });
+            }
             else
                 failed.call();
         });
@@ -85,24 +102,87 @@ public class UserDataService {
         }
 
         DocumentReference docRef = db.collection(COLLECTION_NAME).document(uuid);
-        docRef.get().addOnSuccessListener(documentSnapshot ->
-            succeeded.call(documentSnapshot)
-        ).addOnFailureListener(failure -> failed.call());
+        docRef.get().addOnSuccessListener(documentSnapshot -> getQRCode(
+            (Object... objects) -> succeeded.call(documentSnapshot, objects[0]),
+            (Object... objects) -> failed.call()
+        )).addOnFailureListener(e -> failed.call());
+    }
+
+    public void getConnectionsData(
+            List<String> connectionsUUIDs,
+            ILambda succeeded,
+            ILambda failed
+    ) {
+        CollectionReference colRef = db.collection(COLLECTION_NAME);
+        colRef.whereIn(
+                FieldPath.documentId(),
+                connectionsUUIDs.isEmpty() ? new ArrayList<>(List.of("NONE")) : connectionsUUIDs)
+                .get().addOnSuccessListener(queryDocumentSnapshots ->
+                        succeeded.call((List<DocumentSnapshot>) queryDocumentSnapshots.getDocuments())
+                ).addOnFailureListener(e -> failed.call());
     }
 
     public void updateLink(
-            EditableLink editableLink,
+            PlatformLink platformLink,
             ILambda succeeded,
             ILambda failed
     ) {
         assert auth.getUid() != null;
         DocumentReference docRef = db.collection(COLLECTION_NAME).document(auth.getUid());
-        docRef.update(String.format("links.%s", editableLink.getPlatform()), editableLink.getLink())
+        docRef.update(String.format("links.%s", platformLink.getPlatform()), platformLink.getLink())
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful())
                         succeeded.call();
                     else
                         failed.call();
+                });
+    }
+
+    public void addConnection(
+            String uuid,
+            ILambda succeeded,
+            ILambda failed
+    ) {
+        assert auth.getUid() != null;
+        DocumentReference docRef = db.collection(COLLECTION_NAME).document(auth.getUid());
+        docRef.update("connections", FieldValue.arrayUnion(uuid)).addOnCompleteListener(task -> {
+           if (task.isSuccessful())
+               succeeded.call();
+           else
+               failed.call();
+        });
+    }
+
+    public void addQRCode(
+            ILambda succeeded,
+            ILambda failed
+    ) {
+        try {
+            byte[] qrByteArray = qrCodeService.generateQR(auth.getUid());
+            storage.getReference().child(String.format("%s.png", auth.getUid()))
+                    .putBytes(qrByteArray).addOnCompleteListener(task -> {
+                        if (task.isSuccessful())
+                            succeeded.call();
+                        else
+                            failed.call();
+
+                    });
+        } catch (WriterException e) {
+            e.printStackTrace();
+            failed.call();
+        }
+    }
+
+    public void getQRCode(
+            ILambda succeeded,
+            ILambda failed
+    ) {
+        storage.getReference().child(String.format("%s.png", auth.getUid()))
+                .getBytes(5000).addOnSuccessListener(bytes -> {
+                    succeeded.call(BitmapFactory.decodeByteArray(bytes, 0, bytes.length));
+                }).addOnFailureListener(e -> {
+                   e.printStackTrace();
+                   failed.call();
                 });
     }
 }
