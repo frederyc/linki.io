@@ -3,14 +3,7 @@
 ![linky](https://user-images.githubusercontent.com/64581539/207727914-ddcd4996-a970-45db-ab79-ce85a6864946.png)
 
 ### Description ###
-Linky.io is a native Android application that allows users to store multiple social media profiles via links and 
-share them with other users in an instance, via NFC. When both users click **Share me**, a connection is established
-and both participants will share their **Linky.io profile links**.
-
-Users can sign up/in via Firebase Authentication, allowing them to choose between email/password or Google 
-authentication. Data related to users is stored using Cloud Firestore.
-
-Users will have the ability to click the _Share me_ 
-
-### Status ### 
-This application is a university project and is still in progress. The expected finish day is January 14, 2023.
+Linky.io is a native Android application which allows users to exchange contact information, social media and more
+via QR codes. On average, a GEN Z-er has 8.4 social media accounts, according to Global Web Index. Exchanging 
+contact information between two people who have 8 accounts is a tedious process, but with Linky.io, users can scan 
+each other’s QR codes and share the information all at once.
