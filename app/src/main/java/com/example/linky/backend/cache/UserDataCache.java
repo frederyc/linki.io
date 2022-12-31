@@ -56,6 +56,7 @@ public class UserDataCache {
         platformLinks = null;
         fullName = null;
         email = null;
+        connections = null;
     }
 
     public static PlatformLink[] getEditableLinks() {

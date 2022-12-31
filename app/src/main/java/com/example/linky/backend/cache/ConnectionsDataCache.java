@@ -36,6 +36,10 @@ public class ConnectionsDataCache {
         });
     }
 
+    public static void reset() {
+        connectionsData.clear();
+    }
+
     public static Map<String, Connection> getConnectionsData() {
         return connectionsData;
     }
