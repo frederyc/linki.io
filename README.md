@@ -6,6 +6,11 @@ via QR codes. On average, a GEN Z-er has 8.4 social media accounts, according to
 contact information between two people who have 8 accounts is a tedious process, but with Linky.io, users can scan 
 each other’s QR codes and share the information all at once.
 
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+
 ### Screenshots ###
 ![322668948_1236696973583174_962368278709854638_n](https://user-images.githubusercontent.com/64581539/210139577-e5b20390-a71d-4941-9c6f-16df868f329a.jpg)
 ![322387906_717404283135669_1410411561017257163_n](https://user-images.githubusercontent.com/64581539/210139583-f12953ed-2e21-4f36-8fd6-618f8ecd6c33.jpg)
