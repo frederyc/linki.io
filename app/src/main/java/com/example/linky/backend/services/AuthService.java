@@ -1,5 +1,6 @@
 package com.example.linky.backend.services;
 
+import com.example.linky.backend.cache.ConnectionsDataCache;
 import com.example.linky.backend.cache.UserDataCache;
 import com.example.linky.backend.interfaces.ILambda;
 import com.google.firebase.auth.FirebaseAuth;
@@ -63,6 +64,7 @@ public class AuthService {
     public void signOut() {
         auth.signOut();
         UserDataCache.reset();
+        ConnectionsDataCache.reset();
     }
 
 }

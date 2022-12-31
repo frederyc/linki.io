@@ -65,6 +65,7 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:ems="10"
+            android:textCursorDrawable="@null"
             android:hint="Link not added yet, paste your link here"
             android:inputType="textEmailAddress"
             android:textColor="?colorOnPrimary"
