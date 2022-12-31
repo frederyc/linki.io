@@ -145,18 +145,10 @@ public class UserDataService {
     ) {
         assert auth.getUid() != null;
         DocumentReference currUser = db.collection(COLLECTION_NAME).document(auth.getUid());
-        DocumentReference connUser = db.collection(COLLECTION_NAME).document(uuid);
         currUser.update("connections", FieldValue.arrayUnion(uuid))
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful())
-                        connUser.update("connections", FieldValue.arrayUnion(auth.getUid()))
-                                .addOnCompleteListener(task1 -> {
-                                    if (task1.isSuccessful())
-                                        succeeded.call();
-                                    else
-                                        currUser.update("connections", FieldValue.arrayRemove(uuid))
-                                                .addOnCompleteListener(task2 -> failed.call());
-                       });
+                        succeeded.call();
                     else
                         failed.call();
         });
