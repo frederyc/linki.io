@@ -21,200 +21,13 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Connections"
             android:textColor="?colorPrimary"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <Switch
-            android:id="@+id/darkTheme"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Dark theme"
-            android:textColor="?colorOnPrimary"
-            tools:ignore="UseSwitchCompatOrMaterialXml" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Acount"
-            android:textColor="?colorPrimary"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/circleImageView"
-                android:layout_width="96dp"
-                android:layout_height="96dp"
-                android:src="@drawable/bereal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/choosePhoto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Choose photo"
-                android:textColor="#FFF"
-                android:textAllCaps="false"
-                app:layout_constraintBottom_toBottomOf="@+id/circleImageView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/circleImageView"
-                app:layout_constraintTop_toTopOf="@+id/circleImageView" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="?colorOnPrimary"
+            android:textSize="24sp"
             android:textStyle="bold"
-            android:layout_marginTop="15dp"
-            android:textSize="12sp"
-            android:text="Name" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:orientation="horizontal"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:background="@drawable/auth_rounded_corners">
-
-            <EditText
-                android:id="@+id/userNameSettings"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginEnd="15dp"
-                android:background="@android:color/transparent"
-                android:hint="John Doe"
-                android:textSize="12sp"
-                android:textColor="?colorOnPrimary"
-                android:textColorHint="?colorOnPrimary"
-                android:layout_gravity="center"
-                android:layout_marginVertical="4dp"
-                android:ems="10"
-                android:inputType="textEmailAddress" />
-
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="?colorOnPrimary"
-            android:textStyle="bold"
-            android:layout_marginTop="15dp"
-            android:textSize="12sp"
-            android:text="Email" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:orientation="horizontal"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:background="@drawable/auth_rounded_corners">
-
-            <EditText
-                android:id="@+id/emailSettings"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginEnd="15dp"
-                android:background="@android:color/transparent"
-                android:hint="your@email.com"
-                android:textSize="12sp"
-                android:textColor="?colorOnPrimary"
-                android:textColorHint="?colorOnPrimary"
-                android:layout_gravity="center"
-                android:layout_marginVertical="4dp"
-                android:ems="10"
-                android:inputType="textEmailAddress" />
-
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="?colorOnPrimary"
-            android:textStyle="bold"
-            android:layout_marginTop="15dp"
-            android:textSize="12sp"
-            android:text="Password" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:orientation="horizontal"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:background="@drawable/auth_rounded_corners">
-
-            <EditText
-                android:id="@+id/passwordSettings"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginEnd="15dp"
-                android:background="@android:color/transparent"
-                android:hint="********"
-                android:textSize="12sp"
-                android:textColor="?colorOnPrimary"
-                android:textColorHint="?colorOnPrimary"
-                android:layout_gravity="center"
-                android:layout_marginVertical="4dp"
-                android:ems="10"
-                android:inputType="textEmailAddress" />
-
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="?colorOnPrimary"
-            android:textStyle="bold"
-            android:layout_marginTop="15dp"
-            android:textSize="12sp"
-            android:text="Confirm new password" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:orientation="horizontal"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:background="@drawable/auth_rounded_corners">
-
-            <EditText
-                android:id="@+id/emailRegister"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginEnd="15dp"
-                android:background="@android:color/transparent"
-                android:hint="your@email.com"
-                android:textSize="12sp"
-                android:textColor="?colorOnPrimary"
-                android:textColorHint="?colorOnPrimary"
-                android:layout_gravity="center"
-                android:layout_marginVertical="4dp"
-                android:ems="10"
-                android:inputType="textEmailAddress" />
-
-        </LinearLayout>
+            android:text="Settings" />
 
         <Button
-            android:id="@+id/saveAccountData"
+            android:id="@+id/FSSignOut"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@drawable/button_primary"
@@ -223,10 +36,9 @@
             android:textStyle="bold"
             android:textAllCaps="false"
             android:textColor="#FFF"
-            android:enabled="false"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:textAlignment="center"
-            android:text="Save" />
+            android:text="Sign out" />
 
     </LinearLayout>
 

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/CDActivity"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
-    tools:context=".ui.profile.ProfileFragment">
+    tools:context=".ConnectionDetailsActivity">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -17,47 +18,45 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/PFQRCode"
-            android:layout_width="96dp"
-            android:layout_height="96dp"
-            android:src="@drawable/profile_placeholder" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="?colorPrimary"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:text="Connection's details" />
 
         <TextView
-            android:id="@+id/PFName"
-            android:layout_width="wrap_content"
+            android:id="@+id/CDName"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
             android:textColor="?colorOnPrimary"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="16dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
             android:text="John Doe" />
 
         <TextView
-            android:id="@+id/PFEmail"
-            android:layout_width="wrap_content"
+            android:id="@+id/CDEmail"
+            android:layout_marginTop="4dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="?colorOnPrimary"
-            android:text="johndoe@gmail.com" />
+            android:text="john.doe@email.com" />
 
-        <Button
-            android:id="@+id/PFScanQR"
+        <TextView
+            android:id="@+id/CDNoLinks"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/button_primary"
-            android:padding="0dp"
-            android:text="Scan QR"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textColor="#FFF"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            tools:ignore="TouchTargetSizeCheck" />
+            android:text="This user doesn't have any links yet"/>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/PFMyLinksList"
+            android:id="@+id/CDConnectionLinksList"
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="20dp" />
+            android:layout_height="match_parent" />
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

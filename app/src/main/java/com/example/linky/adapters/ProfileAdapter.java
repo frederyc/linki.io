@@ -1,7 +1,6 @@
 package com.example.linky.adapters;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,32 +13,32 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.linky.R;
-import com.example.linky.backend.interfaces.IEditableLinkClickEvent;
-import com.example.linky.backend.models.EditableLink;
+import com.example.linky.backend.interfaces.IPlatformLinkClickEvent;
+import com.example.linky.backend.models.PlatformLink;
 import com.makeramen.roundedimageview.RoundedImageView;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> {
-    private final IEditableLinkClickEvent editableLinkClickEvent;
-    EditableLink[] editableLinks;
+public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.MyViewHolder> {
+    private final IPlatformLinkClickEvent platformLinkClickEvent;
+    PlatformLink[] platformLinks;
     Context context;
 
-    public HomeAdapter(
+    public ProfileAdapter(
             Context ct,
-            EditableLink[] editableLinks,
-            IEditableLinkClickEvent editableLinkClickEvent
+            PlatformLink[] platformLinks,
+            IPlatformLinkClickEvent platformLinkClickEvent
     ) {
-        context = ct;
-        this.editableLinks = editableLinks;
-        this.editableLinkClickEvent = editableLinkClickEvent;
+        this.context = ct;
+        this.platformLinks = platformLinks;
+        this.platformLinkClickEvent = platformLinkClickEvent;
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context)
-                .inflate(R.layout.user_editable_link, parent, false);
+                .inflate(R.layout.user_platform_link, parent, false);
         return new MyViewHolder(view);
     }
 
@@ -48,13 +47,13 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
         holder.platformLogo.setImageDrawable(
                 ResourcesCompat.getDrawable(
                         context.getResources(),
-                        getDrawableByName(editableLinks[position].getPlatform()),
+                        getDrawableByName(platformLinks[position].getPlatform()),
                         null
                 )
         );
-        holder.platformName.setText(editableLinks[position].getPlatform());
+        holder.platformName.setText(platformLinks[position].getPlatform());
 
-        boolean emptyLink = editableLinks[position].getLink().isEmpty();
+        boolean emptyLink = platformLinks[position].getLink().isEmpty();
         holder.edit.setVisibility(emptyLink ? View.GONE : View.VISIBLE);
         holder.add.setVisibility(emptyLink ? View.VISIBLE : View.GONE);
     }
@@ -98,7 +97,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
 
     @Override
     public int getItemCount() {
-        return editableLinks.length;
+        return platformLinks.length;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -109,28 +108,27 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            if (itemView.findViewById(R.id.UELPlatformLogo) == null)
+            if (itemView.findViewById(R.id.UPLPlatformLogo) == null)
                 Log.e("ERROR", "Logo is null");
-            if (itemView.findViewById(R.id.UELPlatformName) == null)
+            if (itemView.findViewById(R.id.UPLPlatformName) == null)
                 Log.e("ERROR", "Name is null");
-            if (itemView.findViewById(R.id.UELCardView) == null)
+            if (itemView.findViewById(R.id.UPLCardView) == null)
                 Log.e("ERROR", "CardView is null");
-            if (itemView.findViewById(R.id.UELAdd) == null)
+            if (itemView.findViewById(R.id.UPLAdd) == null)
                 Log.e("ERROR", "Add is null");
-            if (itemView.findViewById(R.id.UELEdit) == null)
+            if (itemView.findViewById(R.id.UPLEdit) == null)
                 Log.e("ERROR", "Edit is null");
 
-            platformLogo = itemView.findViewById(R.id.UELPlatformLogo);
-            platformName = itemView.findViewById(R.id.UELPlatformName);
-            add = itemView.findViewById(R.id.UELAdd);
-            edit = itemView.findViewById(R.id.UELEdit);
-            cardView = itemView.findViewById(R.id.UELCardView);
+            platformLogo = itemView.findViewById(R.id.UPLPlatformLogo);
+            platformName = itemView.findViewById(R.id.UPLPlatformName);
+            add = itemView.findViewById(R.id.UPLAdd);
+            edit = itemView.findViewById(R.id.UPLEdit);
+            cardView = itemView.findViewById(R.id.UPLCardView);
 
             itemView.setOnClickListener(view -> {
                 int pos = getAdapterPosition();
-                if (pos != RecyclerView.NO_POSITION) {
-                    editableLinkClickEvent.onItemClick(pos);
-                }
+                if (pos != RecyclerView.NO_POSITION)
+                    platformLinkClickEvent.onItemClick(pos);
             });
         }
     }

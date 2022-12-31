@@ -1,12 +1,9 @@
 package com.example.linky.backend.models;
 
-public class EditableLink {
+public class PlatformLink {
     private String platform, link;
 
-    public EditableLink() {
-    }
-
-    public EditableLink(String platform, String link) {
+    public PlatformLink(String platform, String link) {
         this.platform = platform;
         this.link = link;
     }

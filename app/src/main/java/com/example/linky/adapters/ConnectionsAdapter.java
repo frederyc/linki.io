@@ -7,20 +7,27 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.linky.R;
+import com.example.linky.backend.interfaces.IPlatformLinkClickEvent;
 import com.example.linky.backend.models.Connection;
-import com.makeramen.roundedimageview.RoundedImageView;
+
+import java.util.List;
 
 public class ConnectionsAdapter extends RecyclerView.Adapter<ConnectionsAdapter.MyViewHolder> {
+    private final IPlatformLinkClickEvent platformLinkClickEvent;
     Context ct;
-    Connection[] connections;
+    List<Connection> connections;
 
-    public ConnectionsAdapter(Context ct, Connection[] connections) {
+    public ConnectionsAdapter(
+            Context ct,
+            List<Connection> connections,
+            IPlatformLinkClickEvent platformLinkClickEvent
+    ) {
         this.ct = ct;
         this.connections = connections;
+        this.platformLinkClickEvent = platformLinkClickEvent;
     }
 
     @NonNull
@@ -32,31 +39,28 @@ public class ConnectionsAdapter extends RecyclerView.Adapter<ConnectionsAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.userIcon.setImageDrawable(
-                ResourcesCompat.getDrawable(
-                        ct.getResources(),
-                        R.drawable.profile_placeholder,
-                        null
-                )
-        );
-        holder.userName.setText(connections[position].getName());
-        holder.userEmail.setText(connections[position].getEmail());
+        holder.userName.setText(connections.get(position).getName());
+        holder.userEmail.setText(connections.get(position).getEmail());
     }
 
     @Override
     public int getItemCount() {
-        return connections.length;
+        return connections.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        RoundedImageView userIcon;
         TextView userName, userEmail;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            userIcon = itemView.findViewById(R.id.userIcon);
-            userName = itemView.findViewById(R.id.userName);
-            userEmail = itemView.findViewById(R.id.userEmail);
+            userName = itemView.findViewById(R.id.UCCFullName);
+            userEmail = itemView.findViewById(R.id.UCCEmail);
+
+            itemView.setOnClickListener(view -> {
+                int pos = getAdapterPosition();
+                if (pos != RecyclerView.NO_POSITION)
+                    platformLinkClickEvent.onItemClick(pos);
+            });
         }
     }
 }

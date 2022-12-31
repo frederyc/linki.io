@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.util.DisplayMetrics;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,7 +15,7 @@ import androidx.core.content.res.ResourcesCompat;
 
 import com.example.linky.R;
 import com.example.linky.backend.interfaces.ILambda;
-import com.example.linky.backend.models.EditableLink;
+import com.example.linky.backend.models.PlatformLink;
 import com.example.linky.backend.services.LinkValidationService;
 import com.example.linky.backend.services.UserDataService;
 
@@ -60,7 +58,7 @@ public class EditLinkDialog {
         link = (EditText) dialog.findViewById(R.id.EDLLink);
     }
 
-    private void handleUpdateLink(EditableLink el) {
+    private void handleUpdateLink(PlatformLink el) {
         String link = ((EditText) dialog.findViewById(R.id.EDLLink)).getText().toString();
 
         if (!linkValidationService.checkLink(el.getPlatform(), link)) {
@@ -74,7 +72,7 @@ public class EditLinkDialog {
         loadingScreen.start();
 
         userDataService.updateLink(
-                new EditableLink(el.getPlatform(), link), (Object... objects) -> {
+                new PlatformLink(el.getPlatform(), link), (Object... objects) -> {
                     el.setLink(link);
                     updateRecyclerView.call();
 
@@ -90,14 +88,14 @@ public class EditLinkDialog {
         );
     }
 
-    private void handleDeleteLink(EditableLink el) {
+    private void handleDeleteLink(PlatformLink el) {
         LoadingScreen loadingScreen = new LoadingScreen(
                 activity,
                 R.layout.loading_screen);
         loadingScreen.start();
 
         userDataService.updateLink(
-                new EditableLink(el.getPlatform(), ""), (Object... objects) -> {
+                new PlatformLink(el.getPlatform(), ""), (Object... objects) -> {
                     el.setLink("");
                     updateRecyclerView.call();
 
@@ -113,7 +111,7 @@ public class EditLinkDialog {
         );
     }
 
-    public void show(EditableLink el) {
+    public void show(PlatformLink el) {
         platformLogo.setImageDrawable(
                 ResourcesCompat.getDrawable(
                 dialog.getContext().getResources(),

@@ -18,18 +18,25 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="?colorPrimary"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             android:text="Connections" />
 
+        <TextView
+            android:id="@+id/FCNoConnections"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textAlignment="center"
+            android:text="You don't have any connections yet"/>
+
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/myConnectionsList"
+            android:id="@+id/FCConnectionsList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="16dp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

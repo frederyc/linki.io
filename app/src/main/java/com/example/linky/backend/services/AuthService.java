@@ -1,5 +1,6 @@
 package com.example.linky.backend.services;
 
+import com.example.linky.backend.cache.UserDataCache;
 import com.example.linky.backend.interfaces.ILambda;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -25,7 +26,7 @@ public class AuthService {
             String password,
             ILambda succeeded,
             ILambda failed
-            ) {
+    ) {
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
             if (task.isSuccessful())
                 userDataService.createUserData(
@@ -57,6 +58,11 @@ public class AuthService {
      */
     public boolean userLoggedIn() {
         return auth.getCurrentUser() != null;
+    }
+
+    public void signOut() {
+        auth.signOut();
+        UserDataCache.reset();
     }
 
 }
