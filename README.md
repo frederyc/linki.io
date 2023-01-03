@@ -5,10 +5,7 @@ Linky.io is a native Android application which allows users to exchange contact 
 via QR codes. On average, a GEN Z-er has 8.4 social media accounts, according to Global Web Index. Exchanging 
 contact information between two people who have 8 accounts is a tedious process, but with Linky.io, users can scan 
 each other’s QR codes and share the information all at once.
-| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+
 ### Screenshots ###
 
 <p float="left">
