@@ -20,7 +20,7 @@ each other’s QR codes and share the information all at once.
 ![322125161_872909184023996_9127341101152055788_n](https://user-images.githubusercontent.com/64581539/210139611-dda17004-bec2-4faf-ad90-1b2272007f26.jpg)
 
 <p float="left">
-  <img src="https://user-images.githubusercontent.com/64581539/210139577-e5b20390-a71d-4941-9c6f-16df868f329a.jpg" width="100" />
-  <img src="https://user-images.githubusercontent.com/64581539/210139577-e5b20390-a71d-4941-9c6f-16df868f329a.jpg" width="100" />
-  <img src="https://user-images.githubusercontent.com/64581539/210139577-e5b20390-a71d-4941-9c6f-16df868f329a.jpg" width="100" />
+  <img src="https://user-images.githubusercontent.com/64581539/210139577-e5b20390-a71d-4941-9c6f-16df868f329a.jpg" width="300" />
+  <img src="https://user-images.githubusercontent.com/64581539/210139577-e5b20390-a71d-4941-9c6f-16df868f329a.jpg" width="300" />
+  <img src="https://user-images.githubusercontent.com/64581539/210139577-e5b20390-a71d-4941-9c6f-16df868f329a.jpg" width="300" />
 </p>
