@@ -14,7 +14,6 @@ each other’s QR codes and share the information all at once.
 <p float="left">
   <img src="https://user-images.githubusercontent.com/64581539/210139577-e5b20390-a71d-4941-9c6f-16df868f329a.jpg" width="300" />
   <img src="https://user-images.githubusercontent.com/64581539/210139583-f12953ed-2e21-4f36-8fd6-618f8ecd6c33.jpg" width="300" />
-  <img src="https://user-images.githubusercontent.com/64581539/210139584-4e439033-180c-4af8-b37e-945901ea6599.jpg" width="300" />
 </p>
 <p float="left">
   <img src="https://user-images.githubusercontent.com/64581539/210139586-55719c3d-5f21-49f6-b546-22eebd866b6a.jpg" width="300" />
